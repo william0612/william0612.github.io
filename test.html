@@ -55,7 +55,7 @@
     }
   }
 
-  p {
+  .tes {
   width: 300px;
   height: 100px;
   background-color: green;
@@ -85,16 +85,50 @@
   <h1>justian anak setan</h1>
 
   <h1>Touch Events</h1>
-  <p>This is a paragraph</p>
+  <p class="tes">This is a paragraph</p>
   <script>
-    document.querySelector('p').addEventListener('touchstart', f);
-    document.querySelector('p').addEventListener('touchend',f);
-    document.querySelector('p').addEventListener('touchmove',f);
+    // document.querySelector('p').addEventListener('touchstart', f);
+    // document.querySelector('p').addEventListener('touchend',f);
+    // document.querySelector('p').addEventListener('touchmove',f);
 
-    function f(ev) {
-      console.log( ev.touches, ev.type );
+    // function f(ev) {
+    //   console.log( ev.touches, ev.type );
+    // }
+
+    fetch("https://reqres.in/api/users")
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(function(err) {
+        console.log("terjadi error")
+      })
+      async function foo() {
+        let obj
+        const res = await fetch('https://reqres.in/api/users')
+        obj = await res.json();
+        return obj;
     }
-  </script>
+    
+    foo().then(dt => {
+      for(i=0; i < dt.data.length; i++) {
+        document.getElementById("here").innerHTML += dt.data[i].first_name+ " "
+        document.getElementById("here").innerHTML += dt.data[i].last_name+ " "
+        document.getElementById("here").innerHTML += "<img src='" + dt.data[i].first_name+ "'><br>"
+      }}
 
+    );
+
+
+
+// // url (required), options (optional)
+// fetch('https://randomuser.me/api?results=10', {
+// 	method: 'get'
+// }).then(function(response) {
+	
+// }).catch(function(err) {
+// 	// Error :(
+// });
+
+  </script>
+  <p id="here"></p>
 </body>
 </html>
