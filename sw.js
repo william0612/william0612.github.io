@@ -17,7 +17,11 @@ var urlsToCache = [
   '/images/example-blog05.jpg',
   '/images/example-blog06.jpg',
   '/images/example-blog07.jpg',
-  '/images/example-work01.jpg'
+  '/images/example-work01.jpg',
+  'https://fonts.googleapis.com/icon?family=Material+Icons',
+    'https://code.getmdl.io/1.3.0/material.grey-pink.min.css',
+    'https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en',
+    'https://code.getmdl.io/1.3.0/material.min.js'
 ];
 
 self.addEventListener('install', function(event) {
